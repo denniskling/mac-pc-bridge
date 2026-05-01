@@ -1,25 +1,16 @@
-# SMB Mac ↔ Windows 11 – aktueller Stand
+# SMB Mac ↔ Windows 11 – ABGESCHLOSSEN ✓
 
-## Ziel
+## Setup
+- PC: `DESKTOP-RR8FK9G`, User `dennis`, IP `192.168.178.36`
+- Freigabe: `D:\Musik\Rekordbox` → Freigabename `Rekordbox`
+- Mac verbinden: Finder → `Cmd+K` → `smb://dennis@192.168.178.36/Rekordbox`
+- Gemountet unter: `/Volumes/Rekordbox`
 
-Rekordbox-Musikordner vom PC (`D:\Musik\Rekordbox`) über SMB auf dem Mac einbinden, damit Rekordbox auf dem Mac die MP3s vom PC abspielen/auflegen kann.
-
-## Status
-- SMB-Verbindung funktioniert ✓
-- Ordner `Rekordbox` gemountet, Dateien sichtbar ✓
-- Ordner liegt unter `/Volumes/Rekordbox` auf dem Mac
-
-## Rekordbox einrichten
-
-**Option A – Ordner zur Collection hinzufügen (empfohlen):**
-1. Rekordbox öffnen
-2. Linke Sidebar: Rechtsklick auf **Collection** → **Ordner zur Collection hinzufügen**
-3. `/Volumes/Rekordbox` auswählen → Rekordbox scannt alle Tracks
-
-**Option B – Musikordner-Pfad setzen:**
-1. Rekordbox → Einstellungen (Zahnrad oben rechts)
-2. **Erweitert** → **Musikordner** → auf `/Volumes/Rekordbox` setzen
+## Rekordbox
+- Collection → Ordner hinzufügen → `/Volumes/Rekordbox`
+- Tracks analysieren: alle markieren → Rechtsklick → Analysieren (BPM, Key, Waveform)
+- Auto-Analyse: Einstellungen → Analyse → automatisch aktivieren
 
 ## Wichtig
-- Vor dem Auflegen sicherstellen, dass der SMB-Share gemountet ist (Finder → Netzwerk oder `Cmd+K`)
-- Bei jedem Mac-Neustart muss die Verbindung neu hergestellt werden (außer du richtest Auto-Mount ein)
+- SMB-Share muss vor Rekordbox gemountet sein
+- Bei Mac-Neustart erneut verbinden (`Cmd+K`)
