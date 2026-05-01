@@ -5,30 +5,21 @@
 Rekordbox-Musikordner vom PC (`D:\Musik\Rekordbox`) über SMB auf dem Mac einbinden, damit Rekordbox auf dem Mac die MP3s vom PC abspielen/auflegen kann.
 
 ## Status
-- PC erreichbar (ping ok)
-- SMB-Verbindung schlägt fehl: **Authentication error**
+- SMB-Verbindung funktioniert ✓
+- Ordner `Rekordbox` gemountet, Dateien sichtbar ✓
+- Ordner liegt unter `/Volumes/Rekordbox` auf dem Mac
 
-## Windows-Credentials
+## Rekordbox einrichten
 
-```
-DESKTOP-RR8FK9G\dennis
-```
+**Option A – Ordner zur Collection hinzufügen (empfohlen):**
+1. Rekordbox öffnen
+2. Linke Sidebar: Rechtsklick auf **Collection** → **Ordner zur Collection hinzufügen**
+3. `/Volumes/Rekordbox` auswählen → Rekordbox scannt alle Tracks
 
-Auf dem Mac verbinden mit:
-```
-smbutil view //dennis@192.168.178.36
-```
+**Option B – Musikordner-Pfad setzen:**
+1. Rekordbox → Einstellungen (Zahnrad oben rechts)
+2. **Erweitert** → **Musikordner** → auf `/Volumes/Rekordbox` setzen
 
-## Falls Authentication weiter fehlschlägt
-
-Microsoft-Konto macht oft Probleme. Fix: Lokalen Windows-User anlegen:
-1. Einstellungen → Konten → Familie und andere Benutzer → Konto hinzufügen
-2. "Ich kenne die Anmeldedaten nicht" → "Benutzer ohne Microsoft-Konto"
-3. Lokalen User + Passwort erstellen
-4. Ordner-Freigabe für diesen User erlauben (Rechtsklick Ordner → Eigenschaften → Freigabe)
-
-## Wenn verbunden
-
-1. Mac Finder: Gehe zu → Mit Server verbinden → `smb://192.168.178.36`
-2. Freigabe `Rekordbox` (oder wie der Ordner heißt) mounten → erscheint unter `/Volumes/Rekordbox`
-3. In Rekordbox auf dem Mac: Einstellungen → Erweitert → Musikordner auf `/Volumes/Rekordbox` setzen (oder Ordner direkt in die Collection ziehen)
+## Wichtig
+- Vor dem Auflegen sicherstellen, dass der SMB-Share gemountet ist (Finder → Netzwerk oder `Cmd+K`)
+- Bei jedem Mac-Neustart muss die Verbindung neu hergestellt werden (außer du richtest Auto-Mount ein)
