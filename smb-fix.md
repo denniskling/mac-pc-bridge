@@ -4,17 +4,15 @@
 - PC erreichbar (ping ok)
 - SMB-Verbindung schlägt fehl: **Authentication error**
 
-## Nächster Schritt: Windows-Username herausfinden
+## Windows-Credentials
 
-Im Windows-Terminal:
 ```
-whoami
+DESKTOP-RR8FK9G\dennis
 ```
-Ausgabe sieht so aus: `COMPUTERNAME\benutzername`
 
-Dann auf dem Mac verbinden mit:
+Auf dem Mac verbinden mit:
 ```
-smbutil view //benutzername@192.168.178.36
+smbutil view //dennis@192.168.178.36
 ```
 
 ## Falls Authentication weiter fehlschlägt
